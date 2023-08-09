@@ -1,0 +1,21 @@
+.container {
+    background-color: black;
+    width: fit-content;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+
+#numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+
+#operations {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
