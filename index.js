@@ -19,7 +19,7 @@ inputs.forEach(function(inputs) {
 
         if (Number(value) || value === '0') {
             currentValue += value;
-        } else if ('+-*/'.includes(value)) {
+        } else if ('+-x/'.includes(value)) {
             if (currentValue !== '') {
                 result = performOperation(result, currentValue, operation);
                 currentValue = '';
@@ -116,7 +116,7 @@ function performOperation(result, currentValue, operation) {
             return result + Number(currentValue);
         case '-':
             return result - Number(currentValue);
-        case '*':
+        case 'x':
             return result * Number(currentValue);
         case '/':
             return result / Number(currentValue);
@@ -127,13 +127,23 @@ function performOperation(result, currentValue, operation) {
 
 // console.log(inputs[3].style.width = "80px");
 displayInput.addEventListener('keydown', function(event) {
-    // console.log(event.key);
+    console.log(event.key);
     inputs.forEach(function(inputs) {
         if (event.key === inputs.textContent) {
             inputs.click();
         }
     })
 })
+
+displayInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace') {
+        displayInput.value = '';
+        currentValue = '';
+    }
+})
+
+
+
 
 
 
