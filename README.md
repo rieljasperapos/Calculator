@@ -1,2 +1,2 @@
 # Calculator
-A simple calculator that performs the four basic arithmetic operations. Addition, Subtraction, Multiplication, and Division.
+A simple calculator that performs the four basic arithmetic operations (Addition, Subtraction, Multiplication, and Division).
