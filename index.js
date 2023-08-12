@@ -1,7 +1,6 @@
 const displayInput = document.getElementById("inputDisplay");
-displayInput.style.height = "40px";
-
 const inputs = document.querySelectorAll('button');
+displayInput.style.height = "40px";
 
 let currentValue = '';
 // let operation = '';
