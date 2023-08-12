@@ -159,29 +159,29 @@ displayInput.addEventListener('keydown', function(event) {
     }
 })
 
+inputs.forEach( element => {
+    element.addEventListener('mouseover', () => hoverAnimation(element))
+})
+
+inputs.forEach ( element => {
+    element.addEventListener('mouseout', () => hoverOut(element))
+})
+
 // inputs.forEach( element => {
-//     element.addEventListener('mouseover', hoverAnimation(element));
+//     element.addEventListener('mouseover', function() {
+//         element.style.backgroundColor = 'green';
+//         element.style.color = '#fff';
+//         element.style.border = 'none';
+//     })
 // })
 
-// inputs.forEach ( element => {
-//     element.addEventListener('mouseout', hoverOut(element));
+// inputs.forEach( element => {
+//     element.addEventListener('mouseout', function() {
+//         element.style.backgroundColor = '';
+//         element.style.color = '';
+//         element.style.border = '';
+//     })
 // })
-
-inputs.forEach( element => {
-    element.addEventListener('mouseover', function() {
-        element.style.backgroundColor = 'green';
-        element.style.color = '#fff';
-        element.style.border = 'none';
-    })
-})
-
-inputs.forEach( element => {
-    element.addEventListener('mouseout', function() {
-        element.style.backgroundColor = '';
-        element.style.color = '';
-        element.style.border = '';
-    })
-})
 
 
 
