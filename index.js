@@ -9,15 +9,18 @@ let result = 0;
 let operation = '';
 
 
-inputs.forEach(function(inputs) {
-    inputs.addEventListener('click', function() {
-        let value = inputs.textContent;
+inputs.forEach( element => {
+    element.addEventListener('click', function() {
+        // hoverOut(element);
+        let value = element.textContent;
         displayInput.ariaPlaceholder = '';
-        displayInput.value += value;
+        if ('+-x/'.includes(value) || Number(value) || value === '0') {
+            displayInput.value += value;
+        }
 
-        console.log(typeof result);
+        // console.log(typeof result);
 
-        if (Number(value) || value === '0') {
+        if (Number(value) || value === '0' || value === '.') {
             currentValue += value;
         } else if ('+-x/'.includes(value)) {
             if (currentValue !== '') {
@@ -125,12 +128,26 @@ function performOperation(result, currentValue, operation) {
     }
 }
 
+function hoverAnimation(element) {
+    element.style.backgroundColor = 'green';
+    element.style.color = '#fff';
+    element.style.border = 'none';
+}
+
+function hoverOut(element) {
+    element.style.backgroundColor = '';
+    element.style.color = '';
+    element.style.border = '';
+}
+
 // console.log(inputs[3].style.width = "80px");
 displayInput.addEventListener('keydown', function(event) {
-    console.log(event.key);
-    inputs.forEach(function(inputs) {
-        if (event.key === inputs.textContent) {
-            inputs.click();
+    // console.log(event.key);
+    inputs.forEach( element => {
+        hoverOut(element);
+        if (event.key === element.textContent) {
+            hoverAnimation(element);
+            element.click();
         }
     })
 })
@@ -140,6 +157,30 @@ displayInput.addEventListener('keydown', function(event) {
         displayInput.value = '';
         currentValue = '';
     }
+})
+
+// inputs.forEach( element => {
+//     element.addEventListener('mouseover', hoverAnimation(element));
+// })
+
+// inputs.forEach ( element => {
+//     element.addEventListener('mouseout', hoverOut(element));
+// })
+
+inputs.forEach( element => {
+    element.addEventListener('mouseover', function() {
+        element.style.backgroundColor = 'green';
+        element.style.color = '#fff';
+        element.style.border = 'none';
+    })
+})
+
+inputs.forEach( element => {
+    element.addEventListener('mouseout', function() {
+        element.style.backgroundColor = '';
+        element.style.color = '';
+        element.style.border = '';
+    })
 })
 
 
